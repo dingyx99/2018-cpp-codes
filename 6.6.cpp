@@ -43,19 +43,25 @@ public:
         day = _day;
     }
 
-    int getYear() {
+    int getYear() const {
         return year;
     }
 
-    int getMonth() {
+    int getMonth() const {
         return month;
     }
 
-    int getDay() {
+    int getDay() const {
         return day;
     }
 
-    Date nextDay() {
+    std::string getString() const {
+        stringstream ss;
+        ss << setfill('0') << setw(4) << year << "-" << setw(2) << month << "-" << day;
+        return ss.str();
+    }
+
+    Date nextDay() const {
         Date d2 = *this;
         d2.day++;
         if (d2.day > month_days[d2.month - 1]) {
@@ -67,6 +73,18 @@ public:
             d2.month -= 12;
         }
         return d2;
+    }
+
+    static int difference(const Date a, const Date b) {
+        if (a == b) return 0;
+        if (a > b) return -difference(b, a);
+        Date a2 = a;
+        int d = 0;
+        while (a2 < b) {
+            a2 = a2.nextDay();
+            d++;
+        }
+        return -d;
     }
 
     bool operator<(const Date b) const {
@@ -86,22 +104,20 @@ public:
         return !(*this < b || *this == b);
     }
 
-    std::string getString() {
-        stringstream ss;
-        ss << setfill('0') << setw(4) << year << "-" << setw(2) << month << "-" << day;
-        return ss.str();
+    bool operator<=(const Date b) const {
+        return (*this < b) || (*this == b);
     }
 
-    static int difference(const Date a, const Date b) {
-        if (a == b) return 0;
-        if (a > b) return -difference(b, a);
-        Date a2 = a;
-        int d = 0;
-        while (a2 < b) {
-            a2 = a2.nextDay();
-            d++;
-            if (d > 10) break;
-        }
-        return d;
+    bool operator>=(const Date b) const {
+        return (*this > b) || (*this == b);
+    }
+
+    bool operator!=(const Date b) const {
+        return !(*this == b);
     }
 };
+
+ostream& operator<<(ostream& os, Date const & v) {
+    os << v.getString();
+    return os;
+}
