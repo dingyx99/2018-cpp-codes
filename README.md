@@ -1,19 +1,23 @@
- # Hi, this is the C++ OOP homework repo.
-  ## From which book ?
-  Just search the ISBN *9-787-302-45883-8* on the Internet.
+# Hi, this is the C++ OOP homework repo.
 
-  The book is published by [Tsinghua University Press](http://www.wqbook.com).
+## From which book ?
 
-  ## Will you make this repo public ?
-  Ahhh, that depends on the degree of compeletion and <strong> my mood</strong> :)
+Just search the ISBN *9-787-302-45883-8* on the Internet.
 
-  ## So why do you write this readme?
-  # Just For Fun :)
+The book is published by [Tsinghua University Press](http://www.wqbook.com).
 
-   ## Wish you would have a good day with your beautiful hair :)
+## Will you make this repo public ?
+
+Ahhh, that depends on the degree of compeletion and **my mood** :)
+
+## So why do you write this readme?
+
+# Just For Fun :)
+
+## Wish you would have a good day with your beautiful hair :)
    
-I'm not mentioning you, <strong>P</strong>erfect <strong>H</strong>air <strong>P</strong>rogramming. (With envy)
+I'm not mentioning it to you, **P**erfect **H**air **P**rogramming. (With envy)
 
-   ![No Hair](/images/nohair.jpg)
+![No Hair](/images/nohair.jpg)
 
-   <strong>&copy;Ding Yuxiao,2018,All Rights Reserved.</strong>
+**&copy; 2018 Ding Yuxiao, All Rights Reserved.**
