@@ -12,7 +12,7 @@
 
    ## Wish you would have a good day with your beautiful hair :)
    
-### I'm not mentioning you, <strong>P</strong>erfect <strong>H</strong>air <strong>P</strong>rogramming. (With envy)
+I'm not mentioning you, <strong>P</strong>erfect <strong>H</strong>air <strong>P</strong>rogramming. (With envy)
 
    ![No Hair](/images/nohair.jpg)
 
