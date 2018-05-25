@@ -34,7 +34,7 @@ class Rational {
     }
 
     void __reduction() {
-        T g = _gcd(__numerator, __denominator);
+        T g = _gcd(abs(__numerator), __denominator);
         if (g == 0)
             throw RationalException("Divide by 0");
         __numerator /= g;
@@ -111,6 +111,6 @@ ostream &operator<<(ostream &os, Rational<T> &r) {
 
 int main() {
     Rational<int> r(1, 6), s(2, 3);
-    cout << s - r << endl;
+    cout << r - s << endl;
     return 0;
 }
