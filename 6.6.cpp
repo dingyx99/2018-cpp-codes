@@ -57,7 +57,7 @@ public:
 
     std::string getString() const {
         stringstream ss;
-        ss << setfill('0') << setw(4) << year << "-" << setw(2) << month << "-" << day;
+        ss << setfill('0') << setw(4) << year << "-" << setw(2) << month << "-" << setw(2) << day;
         return ss.str();
     }
 

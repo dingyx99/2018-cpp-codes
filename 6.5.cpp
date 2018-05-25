@@ -3,6 +3,18 @@
 #include <cmath>
 #include <string>
 
+class BaseException {
+    string message;
+public:
+    BaseException(string message) {
+        this->message = message;
+    }
+
+    BaseException(const char *message) {
+        this->message = string(message);
+    }
+};
+
 class CPoint
 {
     private:
