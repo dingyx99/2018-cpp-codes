@@ -10,5 +10,4 @@ class Rational
     private:
         int a,b;
     public:
-        //To-Do
 };

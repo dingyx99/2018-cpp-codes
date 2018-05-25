@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "*.asx": "xml",
+        "*.wxml": "html",
+        "*.wxss": "css",
+    },
+    "git.autofetch": true,
+    "git.enableCommitSigning": false
+}
