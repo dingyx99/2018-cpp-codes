@@ -34,6 +34,11 @@ class Rational {
     }
 
     void __reduction() {
+        if (__numerator == 0) __denominator = 1;
+        if (__denominator < 0){
+            __numerator = -__numerator;
+            __denominator = -__denominator;
+        }
         T g = _gcd(abs(__numerator), __denominator);
         if (g == 0)
             throw RationalException("Divide by 0");
@@ -58,11 +63,6 @@ public:
             throw RationalException("Divide by 0");
         __numerator = numerator;
         __denominator = denominator;
-        if (__numerator == 0) __denominator = 1;
-        if (__denominator < 0) {
-            __numerator = -__numerator;
-            __denominator = -__denominator;
-        }
         __reduction();
     }
 
@@ -107,10 +107,4 @@ template<class T>
 ostream &operator<<(ostream &os, Rational<T> &r) {
     os << r.__numerator << '/' << r.__denominator;
     return os;
-}
-
-int main() {
-    Rational<int> r(1, 6), s(2, 3);
-    cout << r - s << endl;
-    return 0;
 }
