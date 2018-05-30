@@ -56,7 +56,7 @@ class Rational {
 
 public:
     template<class T2>
-    friend ostream &operator<<(ostream &os, Rational<T2> &r);
+    friend ostream &operator<<(ostream &os, const Rational<T2> &r);
 
     Rational(const T numerator, const T denominator) {
         if (denominator == 0)
@@ -97,25 +97,17 @@ public:
         return a;
     }
 
-    Rational<T> &operator*(const Rational<T> &b) const {
-        Rational<T> a(*this);
-        a.__numerator *= b.__numerator;
-        a.__denominator *= b.__denominator;
-        a.__reduction();
-        return a;
+    Rational<T> operator*(const Rational<T> &b) const {
+        return Rational<T>(this->__numerator * b.__numerator, this->__denominator*this->__denominator);
     }
 
-    Rational<T> &operator/(const Rational<T> &b) const {
-        Rational<T> a(*this);
-        a.__numerator *= b.__denominator;
-        a.__denominator *= b.__numerator;
-        a.__reduction();
-        return a;
+    Rational<T> operator/(const Rational<T> &b) const {
+        return Rational<T>(this->__numerator * b.__denominator, this->__denominator * b.__numerator);
     }
 };
 
 template<class T>
-ostream &operator<<(ostream &os, Rational<T> &r) {
+ostream &operator<<(ostream &os, const Rational<T> &r) {
     os << r.__numerator << '/' << r.__denominator;
     return os;
 }
