@@ -35,7 +35,7 @@ class Rational {
 
     void __reduction() {
         if (__numerator == 0) __denominator = 1;
-        if (__denominator < 0){
+        if (__denominator < 0) {
             __numerator = -__numerator;
             __denominator = -__denominator;
         }
@@ -58,7 +58,7 @@ public:
     template<class T2>
     friend ostream &operator<<(ostream &os, Rational<T2> &r);
 
-    Rational(T numerator, T denominator) {
+    Rational(const T numerator, const T denominator) {
         if (denominator == 0)
             throw RationalException("Divide by 0");
         __numerator = numerator;
@@ -66,27 +66,38 @@ public:
         __reduction();
     }
 
-    Rational<T> &operator+(Rational<T> &b) {
+    Rational(const Rational<T> &existed_object) {
+        __numerator = existed_object.__numerator;
+        __denominator = existed_object.__denominator;
+        __reduction();
+    }
+
+    Rational<T> &operator=(const Rational<T> &b) const {
+        Rational<T> a(b);
+        return a;
+    }
+
+    Rational<T> &operator+(const Rational<T> &b) const {
         Rational<T> a(*this), b2(b);
         T lcm = _lcm(a.__denominator, b.__denominator);
         a = a.__shrink(lcm);
-        b2 = b.__shrink(lcm);
+        b2 = b2.__shrink(lcm);
         a.__numerator += b2.__numerator;
         a.__reduction();
         return a;
     }
 
-    Rational<T> &operator-(Rational<T> &b) {
+    Rational<T> &operator-(const Rational<T> &b) const {
         Rational<T> a(*this), b2(b);
         T lcm = _lcm(a.__denominator, b.__denominator);
         a = a.__shrink(lcm);
-        b2 = b.__shrink(lcm);
+        b2 = b2.__shrink(lcm);
         a.__numerator -= b2.__numerator;
         a.__reduction();
         return a;
     }
 
-    Rational<T> &operator*(Rational<T> &b) {
+    Rational<T> &operator*(const Rational<T> &b) const {
         Rational<T> a(*this);
         a.__numerator *= b.__numerator;
         a.__denominator *= b.__denominator;
@@ -94,7 +105,7 @@ public:
         return a;
     }
 
-    Rational<T> &operator/(Rational<T> &b) {
+    Rational<T> &operator/(const Rational<T> &b) const {
         Rational<T> a(*this);
         a.__numerator *= b.__denominator;
         a.__denominator *= b.__numerator;
