@@ -32,6 +32,13 @@ class Rational {
     static T _lcm(T a, T b) {
         return (a / _gcd(a, b)) * b;
     }
+    
+    Rational(const T numerator, const T denominator, int) {
+        if (denominator == 0)
+            throw RationalException("Divide by 0");
+        __numerator = numerator;
+        __denominator = denominator;
+    }
 
     void __reduction() {
         if (__numerator == 0) __denominator = 1;
@@ -46,12 +53,9 @@ class Rational {
         __denominator /= g;
     }
 
-    Rational<T> &__shrink(T new_denominator) {
-        Rational<T> a(*this);
-        T factor = new_denominator / a.__denominator;
-        a.__numerator *= factor;
-        a.__denominator *= factor;
-        return a;
+    Rational<T> __shrink(T new_denominator) const {
+        T factor = new_denominator / this->__denominator;
+        return Rational<T>(this->__numerator * factor, this->__denominator * factor, 0);
     }
 
 public:
@@ -72,33 +76,22 @@ public:
         __reduction();
     }
 
-    Rational<T> &operator=(const Rational<T> &b) const {
-        Rational<T> a(b);
-        return a;
+    Rational<T> operator=(const Rational<T> &b) const {
+        return Rational(b);
     }
 
-    Rational<T> &operator+(const Rational<T> &b) const {
-        Rational<T> a(*this), b2(b);
-        T lcm = _lcm(a.__denominator, b.__denominator);
-        a = a.__shrink(lcm);
-        b2 = b2.__shrink(lcm);
-        a.__numerator += b2.__numerator;
-        a.__reduction();
-        return a;
+    Rational<T> operator+(const Rational<T> &b) const {
+        T lcm = _lcm(this->__denominator, b.__denominator);
+        return Rational<T>(this->__shrink(lcm).__numerator + b.__shrink(lcm).__numerator, lcm);
     }
 
-    Rational<T> &operator-(const Rational<T> &b) const {
-        Rational<T> a(*this), b2(b);
-        T lcm = _lcm(a.__denominator, b.__denominator);
-        a = a.__shrink(lcm);
-        b2 = b2.__shrink(lcm);
-        a.__numerator -= b2.__numerator;
-        a.__reduction();
-        return a;
+    Rational<T> operator-(const Rational<T> &b) const {
+        T lcm = _lcm(this->__denominator, b.__denominator);
+        return Rational<T>(this->__shrink(lcm).__numerator - b.__shrink(lcm).__numerator, lcm);
     }
 
     Rational<T> operator*(const Rational<T> &b) const {
-        return Rational<T>(this->__numerator * b.__numerator, this->__denominator*this->__denominator);
+        return Rational<T>(this->__numerator * b.__numerator, this->__denominator * this->__denominator);
     }
 
     Rational<T> operator/(const Rational<T> &b) const {
