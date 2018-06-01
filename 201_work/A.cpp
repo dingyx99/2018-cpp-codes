@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <iomanip>
+ 
 using namespace std;
  
 double getEarning(double salary, int absenceDays); 
