@@ -3,7 +3,8 @@
 ## From which book ?
 
 Just search the ISBN *9-787-302-45883-8* on the Internet.</br>
-The book is published by [Tsinghua University Press](http://www.wqbook.com).
+The book is published by [Tsinghua University Press](http://www.wqbook.com).</br>
+Reminder: [Markdown Grammar](http://www.ituring.com.cn/article/504).
 
 ## Will you make this repo public ?
 
