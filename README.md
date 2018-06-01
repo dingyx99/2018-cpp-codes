@@ -2,8 +2,7 @@
 
 ## From which book ?
 
-Just search the ISBN *9-787-302-45883-8* on the Internet.
-
+Just search the ISBN *9-787-302-45883-8* on the Internet.</br>
 The book is published by [Tsinghua University Press](http://www.wqbook.com).
 
 ## Will you make this repo public ?
