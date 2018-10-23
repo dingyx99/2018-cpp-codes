@@ -4,3 +4,5 @@
 .vs/slnx.sqlite
 .vs/cpp-work/v15/Browse.VC.db
 .vs/cpp-work/v15/ipch/AutoPCH/c2b2881caa1b98e2/I.ipch
+
+*.exe
