@@ -1,4 +1,4 @@
-# Hi, this is the C++ OOP homework repo.
+# Hi, this is the C++ OOP homework repo. Now it's public for everyone!
 
 ## From which book ?
 
