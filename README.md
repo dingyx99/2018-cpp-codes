@@ -1,14 +1,15 @@
-# Hi, this is the C++ OOP homework repo. Now it's public for everyone!
-
+# Hi, this is the C++ OOP homework repo.
+# NOTICE: It mostly avaliable for students from Northwest A&F University~
+## 提醒: 此代码仓库适用于包括西北农林科技大学在内的同样使用本书的学校.
 ## From which book ?
 
 Just search the ISBN *9-787-302-45883-8* on the Internet.</br>
 The book is published by [Tsinghua University Press](http://www.wqbook.com).</br>
-Reminder: [Markdown Grammar](http://www.ituring.com.cn/article/504).
+And the 201_work is for OJ of the internal network of NWAFU, just as a reference.
 
 ## Will you make this repo public ?
 
-Ahhh, that depends on the degree of compeletion and **my mood** :)
+Ahhh, now it's public to everyone, and I won't make it private again.(except for requests from teachers.)
 
 ## So why do you write this readme?
 
